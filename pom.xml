@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.hb.sky</groupId>
+    <artifactId>sky</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>sky-common</module>
+        <module>sky-base</module>
+        <module>sky-cache</module>
+        <module>sky-log-support</module>
+        <module>sky-admin</module>
+        <module>sky-config</module>
+        <module>sky-easyui-support</module>
+    </modules>
+
+    <name>sky</name>
+
+    <properties>
+        <!-- 项目基本配置 -->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- springboot相关 -->
+        <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+        <!-- 数据库相关 -->
+        <druid.version>1.1.10</druid.version>
+        <mysql.driver.version>8.0.13</mysql.driver.version>
+        <mybatis-spring-boot-starter-version>1.3.2</mybatis-spring-boot-starter-version>
+        <!-- 实用工具 -->
+        <fastjson.version>1.2.69</fastjson.version>
+        <lombok.version>1.16.14</lombok.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <junit.version>4.11</junit.version>
+        <groovy.version>2.4.7</groovy.version>
+        <okhttp.version>3.12.0</okhttp.version>
+        <commons-httpclient.version>3.1</commons-httpclient.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-collections4.version>4.3</commons-collections4.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-io.version>2.5</commons-io.version>
+        <poi.version>5.0.0</poi.version>
+        <jsoup.version>1.14.3</jsoup.version>
+        <guava.version>23.0</guava.version>
+        <ehcache.version>2.10.6</ehcache.version>
+        <!-- sky组件 -->
+        <sky.version>1.0-SNAPSHOT</sky.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- sky-admin -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-admin</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- sky-base -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-base</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- sky-cache -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-cache</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- sky-common -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-common</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- sky-config -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-config</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- sky-easyui-support -->
+            <dependency>
+                <groupId>com.hb.sky</groupId>
+                <artifactId>sky-easyui-support</artifactId>
+                <version>${sky.version}</version>
+            </dependency>
+            <!-- springboot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.driver.version}</version>
+            </dependency>
+            <!--druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter-version}</version>
+            </dependency>
+            <!-- groovy支持-->
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy.version}</version>
+            </dependency>
+            <!-- okHttp3 -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+            <!-- commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- commons-collections4 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <!-- commons-beanutils -->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <!-- commons-io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!--  poi 文件上传与下载-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- jsoup爬虫 -->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
+</project>

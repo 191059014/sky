@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统配置</title>
+    <script src="../../skyadmin/js/base.js"></script>
+</head>
+<style>
+    .left_content {
+        width: 15%;
+        border-left: none;
+        border-top: none;
+        padding: 10px;
+    }
+
+    .right_content {
+        width: 85%;
+        padding: 10px;
+        border-top: none;
+    }
+
+    .right_content .easyui-panel {
+        padding: 5px;
+        width: 88% !important;
+    }
+
+    .easyui-form {
+        padding-top: 15px;
+    }
+
+    .easyui-form > div {
+        margin-bottom: 15px;
+    }
+
+    .easyui-form > div > label.textbox-label {
+        width: 8%;
+        padding-right: 10px;
+        text-align: right !important;
+    }
+
+    .easyui-form > div > span.textbox {
+        width: 80% !important;
+    }
+</style>
+<body>
+
+<div class="hb_width_100 hb_height_100 easyui-layout">
+    <div class="left_content" data-options="region:'west'">
+        <ul id="configPropertyTree"></ul>
+    </div>
+    <div class="right_content" data-options="region:'center'">
+        <div class="easyui-panel">
+            <a id="saveBtn" href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="plain:true,iconCls:'icon-save'">Save</a>
+            <a id="addBtn" href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="plain:true,iconCls:'icon-add'">Add</a>
+            <a id="clearBtn" href="javascript:void(0)" class="easyui-linkbutton"
+               data-options="plain:true,iconCls:'icon-reload'">Clear</a>
+        </div>
+        <form id="configForm" class="easyui-form" data-options="novalidate:true">
+            <input type="hidden" id="id">
+            <div>
+                <input id="systemName" class="easyui-textbox" data-options="label:'系统名称',required:true">
+            </div>
+            <div>
+                <input id="groupName" class="easyui-textbox"
+                       data-options="label:'分组名称',required:true,validType:'email'">
+            </div>
+            <div>
+                <input id="configKey" class="easyui-textbox" data-options="label:'配置标识',required:true">
+            </div>
+            <div>
+                <input id="configValue" class="easyui-textbox" data-options="label:'配置内容',required:true">
+            </div>
+            <div>
+                <input id="remark" class="easyui-textbox" data-options="label:'备注',multiline:true" style="height: 50px">
+            </div>
+            <div>
+                <input class="easyui-radiobutton" name="status" value="1" label="有效" checked>
+                <input class="easyui-radiobutton" name="status" value="0" label="无效">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#configPropertyTree').tree({
+            url: '../../skyadmin/json/menutree.json',
+            onClick: function (node) {
+                if (node.attributes) {
+                    // $("#center_iframe").attr('src', node.attributes.url);
+                }
+            }
+        });
+
+        $('#clearBtn').bind('click', function () {
+            $('#configForm').form('reset');
+        });
+
+        $('#addBtn').bind('click', function () {
+            $('#configForm').form('reset');
+        });
+
+        $('#saveBtn').bind('click', function () {
+            debugger;
+            let params = {
+                "id": $('#id').val(),
+                "systemName": $('#systemName').val(),
+                "groupName": $('#groupName').val(),
+                "configKey": $('#configKey').val(),
+                "configValue": $('#configValue').val(),
+                "remark": $('#remark').val(),
+                "status": $('input[name="status"]').val()
+            };
+            sendPost('/globalConfig/save', params, function (res) {
+                $.messager.alert('success', '添加成功');
+            });
+        });
+
+    });
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sky</artifactId>
+        <groupId>com.hb.sky</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sky-log-support</artifactId>
+
+    <name>sky-log-support</name>
+
+    <dependencies>
+
+        <!-- sky-common -->
+        <dependency>
+            <groupId>com.hb.sky</groupId>
+            <artifactId>sky-common</artifactId>
+        </dependency>
+
+        <!-- Dubbo -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- feign -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>10.1.0</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

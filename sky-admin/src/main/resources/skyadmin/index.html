@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作台</title>
+    <script src="../skyadmin/js/base.js"></script>
+</head>
+<style>
+    .top_content {
+        height: 50px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 99%;
+    }
+
+    #center_tabs {
+        border-left: none;
+        border-top: none;
+    }
+</style>
+<body>
+<div class="hb_height_100 hb_width_100 easyui-layout">
+    <div class="top_content" data-options="region:'north'">123</div>
+    <div class="hb_col_1" data-options="region:'west',title:'导航菜单',split:true">
+        <ul id="navMenu"></ul>
+    </div>
+    <div region="center" id="center_tabs" class="easyui-tabs" data-options="fit:true"></div>
+</div>
+
+<script>
+    $(function () {
+        $('#navMenu').tree({
+            url: '../skyadmin/json/menutree.json',
+            onClick: function (node) {
+                if (node.attributes) {
+                    addTab(node.text, node.attributes.url)
+                }
+            }
+        });
+
+        function addTab(title, url) {
+            let centerTabs = $('#center_tabs');
+            if (centerTabs.tabs('exists', title)) {
+                centerTabs.tabs('select', title);
+            } else {
+                centerTabs.tabs('add', {
+                    title: title,
+                    content: '<iframe scrolling="auto" frameborder="0" src="' + url + '"></iframe>',
+                    closable: true
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

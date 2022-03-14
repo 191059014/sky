@@ -1,0 +1,64 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.hb_width_100 {
+    width: 100%;
+}
+
+.hb_height_100 {
+    height: 100%;
+}
+
+.hb_col_1 {
+    width: 10%;
+}
+
+.hb_col_2 {
+    width: 20%;
+}
+
+.hb_col_3 {
+    width: 30%;
+}
+
+.hb_col_4 {
+    width: 40%;
+}
+
+.hb_col_5 {
+    width: 30%;
+}
+
+.hb_col_6 {
+    width: 60%;
+}
+
+.hb_col_7 {
+    width: 70%;
+}
+
+.hb_col_8 {
+    width: 80%;
+}
+
+.hb_col_9 {
+    width: 90%;
+}
+
+.hb_left {
+    float: left;
+}
+
+.hb_right {
+    float: right;
+}
+
+:root {
+    --border-color: #95B8E7
+}
